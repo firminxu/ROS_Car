@@ -1,0 +1,15 @@
+<launch>
+	<!-- 将 Urdf 文件的内容加载到参数服务器,solidworks导出的3D信息 -->
+	<!-- <param name="robot_description" textfile="$(find car_gazebo)/urdf/car4.urdf" /> -->
+	<!-- 导入xacro集成的运动控制以及传感器等信息 -->
+	<param name="robot_description" command="$(find xacro)/xacro  $(find car_gazebo)/urdf/car_urdf.xacro" />
+	<!-- 启动 gazebo -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="world_name" value="$(find car_gazebo)/worlds/sixth.world" />
+	</include>
+	<node name="tf_footprint_base" pkg="tf" type="static_transform_publisher" args="0 0 0 0 0 0 base_link base_footprint 40" />
+	<!-- 在 gazebo 中显示机器人模型 -->
+	<node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -model mycar -param robot_description" />
+	<!-- <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" args="-file $(find car_gazebo)/urdf/car4.urdf -urdf -model mycar" output="screen" /> -->
+	<!-- <node name="fake_joint_calibration" pkg="rostopic" type="rostopic" args="pub /calibrated std_msgs/Bool true" /> -->
+</launch>

@@ -1,0 +1,5 @@
+<launch>
+    <!-- 地图保存 -->
+    <arg name="filename" value="$(find car_sim)/map/nav" />
+    <node name="map_save" pkg="map_server" type="map_saver" args="-f $(arg filename)" />
+</launch>

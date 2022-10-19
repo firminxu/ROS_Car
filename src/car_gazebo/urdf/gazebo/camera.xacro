@@ -1,0 +1,7 @@
+<robot name="mycar_camera" xmlns:xacro="http://wiki.ros.org/xacro">	
+    <!-- 摄像头部件 -->
+
+    <!-- 1.参数 -->
+
+    <!-- 2.设计连杆和关节 -->
+</robot>

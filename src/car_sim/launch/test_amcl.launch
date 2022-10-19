@@ -1,0 +1,10 @@
+<launch>
+    <!-- 启动rviz -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher"  type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />   
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_sim)/config/car.rviz" /> 
+    <!-- 加载地图服务 -->
+    <include file="$(find car_sim)/launch/nav03_map_server.launch"/>
+    <!-- 加载amcl文件 -->
+    <include file="$(find car_sim)/launch/nav04_amcl.launch"/>
+</launch>

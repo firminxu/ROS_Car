@@ -1,0 +1,7 @@
+<!-- 集成SLAM与导航，实现机器人自主移动的地图构建 -->
+<launch>
+    <!-- 包含SLAM实现launch文件 -->
+    <include file="$(find car_sim)/launch/nav01_slam.launch"/>
+    <!-- 导航中的move base -->
+    <include file="$(find car_sim)/launch/nav05_path.launch"/>
+</launch>

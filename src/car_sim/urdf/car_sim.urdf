@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="car_sim">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.0224728885923136 1.27425469459951E-06 0.0472580562389892"
+        rpy="0 0 0" />
+      <mass
+        value="0.829481223640528" />
+      <inertia
+        ixx="0.0009054495669054"
+        ixy="8.44074331506777E-08"
+        ixz="-6.71408249405037E-05"
+        iyy="0.00240223972189565"
+        iyz="3.69762089732741E-08"
+        izz="0.00292549483842529" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="4.31437004178026E-13 0.00784312603299509 4.24278667754407E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.0511503917691667" />
+      <inertia
+        ixx="2.19990579138419E-05"
+        ixy="1.3165501060462E-16"
+        ixz="1.99639528395629E-18"
+        iyy="3.89734768739138E-05"
+        iyz="6.81870838822919E-16"
+        izz="2.19987364113652E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_r_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0722 0.034893039656296"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="support">
+    <inertial>
+      <origin
+        xyz="1.52655665885959E-16 -1.73472347597681E-18 0.04"
+        rpy="0 0 0" />
+      <mass
+        value="0.00628318530717959" />
+      <inertia
+        ixx="3.39030207199899E-06"
+        ixy="3.13465160219317E-38"
+        ixz="-1.17009460541534E-20"
+        iyy="3.39030207199899E-06"
+        iyz="-1.59105471050738E-35"
+        izz="7.85398163397449E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/support.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 1 0.501960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/support.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="suppor2base"
+    type="fixed">
+    <origin
+      xyz="-0.03 0 0.0348930396562961"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="support" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="laser">
+    <inertial>
+      <origin
+        xyz="3.46944695195361E-17 1.73472347597681E-18 0.01"
+        rpy="0 0 0" />
+      <mass
+        value="0.0141371669411541" />
+      <inertia
+        ixx="1.26645453847839E-06"
+        ixy="-2.50772128175425E-37"
+        ixz="1.1462049430025E-21"
+        iyy="1.26645453847839E-06"
+        iyz="7.43526531340992E-36"
+        izz="1.59043128087983E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/laser.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.501960784313725 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/laser.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="laser2support"
+    type="fixed">
+    <origin
+      xyz="0 0 0.08"
+      rpy="0 0 0" />
+    <parent
+      link="support" />
+    <child
+      link="laser" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-4.31387130878091E-13 -0.00784312603299506 4.24289076095263E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.0511503917691667" />
+      <inertia
+        ixx="2.1999057913842E-05"
+        ixy="1.31578920388607E-16"
+        ixz="-2.007107256165E-18"
+        iyy="3.89734768739138E-05"
+        iyz="-6.81855529115342E-16"
+        izz="2.19987364113653E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_l_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0.0722 0.034893039656296"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="kinect">
+    <inertial>
+      <origin
+        xyz="-0.00500000000000002 -1.90819582357449E-17 1.66967134562768E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00719999999999999" />
+      <inertia
+        ixx="2.2464E-06"
+        ixy="7.25862132107059E-21"
+        ixz="-1.24479524799473E-22"
+        iyy="1.464E-07"
+        iyz="-7.49500958026638E-23"
+        izz="2.22E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/kinect.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/kinect.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="kinect2base"
+    type="fixed">
+    <origin
+      xyz="0.0808000000000001 0 0.0468930396562957"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="kinect" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="-0.00499999999999999 -2.08166817117217E-17 1.90819582357449E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.003" />
+      <inertia
+        ixx="2.5E-07"
+        ixy="7.52918180746962E-22"
+        ixz="1.57782553425762E-23"
+        iyy="4.99999999999999E-08"
+        iyz="-6.6089383550409E-24"
+        izz="2.5E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://car_sim/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera2base"
+    type="fixed">
+    <origin
+      xyz="0.0808 0 0.0348930396562957"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+      <!-- 添加点云坐标系kinect连杆坐标系的变换 -->
+  <link name="kinect_link_fake"></link>
+  <joint name="kincect_joint_fake" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.5708 0 -1.5708 "/>
+    <parent link="kinect"/>
+    <child link="kinect_link_fake"/>
+  </joint>
+
+</robot>

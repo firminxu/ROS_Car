@@ -1,0 +1,8 @@
+<launch>
+    <!-- 启动rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find car_gazebo)/config/car.rviz" />
+    <!-- 添加关节状态发布节点 -->
+    <node name="joint_state_publisher" pkg="joint_state_publisher"  type="joint_state_publisher" />
+    <!-- 添加机器人状态发布节点 -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />    
+</launch>

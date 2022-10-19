@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com)
+Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+For more information, please see http://wiki.ros.org/sw_urdf_exporter
+-->
+<robot name="mycar">
+	<link name="base_link">
+		<inertial>
+			<origin xyz="-0.0348720276746789 6.58769714060009E-06 0.048324291447554" rpy="0 0 0" />
+			<mass value="0.178260195558643" />
+			<inertia ixx="0.000230154941965817" ixy="-8.0361911216892E-08" ixz="-4.31818095340187E-06" iyy="0.000613729699395584" iyz="-1.44805733832134E-08" izz="0.000776596126087211" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/base_link.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/base_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="base_link">
+		<material>
+			Gazebo/Yellow
+		</material>
+	</gazebo>
+	<link name="camera">
+		<inertial>
+			<origin xyz="3.5747084421697E-18 0.005 0.005" rpy="0 0 0" />
+			<mass value="0.003" />
+			<inertia ixx="4.99999999999999E-08" ixy="2.39286807599343E-25" ixz="2.91245220305501E-24" iyy="2.5E-07" iyz="-2.10611213030835E-24" izz="2.5E-07" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/camera.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0 1 0 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/camera.STL" />
+			</geometry>
+		</collision>
+	</link>
+	<gazebo reference="camera">
+		<material>
+			Gazebo/Gray
+		</material>
+	</gazebo>
+	<joint name="camera2base" type="fixed">
+		<origin xyz="0.0708 0 0.03" rpy="1.5707963267949 0 1.5707963267949" />
+		<parent link="base_link" />
+		<child link="camera" />
+		<axis xyz="0 0 0" />
+	</joint>
+	<link name="kinect">
+		<inertial>
+			<origin xyz="-3.82553607367537E-18 0.006 0.00499999999999999" rpy="0 0 0" />
+			<mass value="0.0072" />
+			<inertia ixx="1.464E-07" ixy="-6.38484852373091E-23" ixz="2.46364050217965E-23" iyy="2.22E-06" iyz="-1.74259382377838E-23" izz="2.2464E-06" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/kinect.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.250980392156863 0.250980392156863 0.250980392156863 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/kinect.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <gazebo reference="kinect">
+		<material>
+			Gazebo/Green
+		</material>
+	</gazebo>
+	<joint name="kinect2base" type="fixed">
+		<origin xyz="0.0708 0 0.041" rpy="1.5707963267949 0 1.5707963267949" />
+		<parent link="base_link" />
+		<child link="kinect" />
+		<axis xyz="0 0 0" />
+	</joint>
+	<link name="support">
+		<inertial>
+			<origin xyz="4.83117026110787E-35 0.04 8.67361737988404E-19" rpy="0 0 0" />
+			<mass value="0.00628318530717959" />
+			<inertia ixx="3.39030207199899E-06" ixy="-2.42841104008608E-39" ixz="9.09020517961032E-55" iyy="7.85398163397448E-08" iyz="2.29588740394978E-39" izz="3.39030207199899E-06" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/support.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/support.STL" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="support2base" type="fixed">
+		<origin xyz="0 0 0.035" rpy="1.5707963267949 0 1.5707963267949" />
+		<parent link="base_link" />
+		<child link="support" />
+		<axis xyz="0 0 0" />
+	</joint>
+	<link name="laser">
+		<inertial>
+			<origin xyz="1.44935107833236E-34 0.01 -2.60208521396521E-18" rpy="0 0 0" />
+			<mass value="0.0141371669411541" />
+			<inertia ixx="1.26645453847839E-06" ixy="-4.09794363014526E-39" ixz="2.56051138736021E-54" iyy="1.59043128087983E-06" iyz="-3.15672903293977E-39" izz="1.26645453847839E-06" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/laser.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.5 0.3 0.0 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="1.5707 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/laser.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <gazebo reference="laser">
+		<material>
+			Gazebo/Gray
+		</material>
+	</gazebo>
+	<joint name="laser2support" type="fixed">
+		<origin xyz="0 0.08 0" rpy="0 0 0" />
+		<parent link="support" />
+		<child link="laser" />
+		<axis xyz="0 0 0" />
+	</joint>
+	<link name="left_wheel">
+		<inertial>
+			<!-- xyz="0.0121431260340735 2.13116560308264E-14 -6.68042010598668E-15" -->
+			<origin xyz="0.012 0 0" rpy="0 0 0" />
+			<mass value="0.0511503917683624" />
+			<inertia ixx="3.89734768733769E-05" ixy="1.13088754354773E-17" ixz="3.99998334192808E-17" iyy="2.19831293215253E-05" iyz="1.52863072021443E-18" izz="2.19834508240025E-05" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/left_wheel.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/left_wheel.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <gazebo reference="left_wheel">
+		<material>
+			Gazebo/Black
+		</material>
+	</gazebo>
+	<joint name="base_l_wheel_joint" type="continuous">
+		<origin xyz="0 -0.0765 0.035" rpy="1.5707963267949 0 1.5707963267949" />
+		<parent link="base_link" />
+		<child link="left_wheel" />
+		<axis xyz="-1 0 0" />
+	</joint>
+	<link name="right_wheel">
+		<inertial>
+			<!-- xyz="-0.0121431260340735 2.13102736975247E-14 6.71337985203024E-15" -->
+			<origin xyz="-0.012 0 0" rpy="0 0 0" />
+			<mass value="0.0511503917683625" />
+			<inertia ixx="3.89734768733768E-05" ixy="-1.12813214048942E-17" ixz="4.03368892087235E-17" iyy="2.19831293215253E-05" iyz="-1.53472903941893E-18" izz="2.19834508240025E-05" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/right_wheel.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/right_wheel.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <gazebo reference="right_wheel">
+		<material>
+			Gazebo/Black
+		</material>
+	</gazebo>
+	<joint name="base_r_wheel_joint" type="continuous">
+		<origin xyz="0 0.0765 0.035" rpy="1.5707963267949 0 1.5707963267949" />
+		<parent link="base_link" />
+		<child link="right_wheel" />
+		<axis xyz="-1 0 0" />
+	</joint>
+	<link name="casterbracket">
+		<inertial>
+			<origin xyz="-0.00696318083900578 0.000458473678726753 -0.0112301340284787" rpy="0 0 0" />
+			<mass value="0.00231472502614639" />
+			<inertia ixx="2.79573383773959E-07" ixy="9.04702648525926E-09" ixz="-8.27510215395162E-08" iyy="2.9073577378625E-07" iyz="1.00447280132479E-08" izz="3.36271685165002E-07" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/casterbracket.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/casterbracket.STL" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="casterbracket2base" type="fixed">
+		<origin xyz="-0.0867 0 0.0332" rpy="0 0 0" />
+		<parent link="base_link" />
+		<child link="casterbracket" />
+		<axis xyz="0 0 -1" />
+	</joint>
+	<link name="casterwheel">
+		<inertial>
+			<origin xyz="1.38777878078145E-17 -1.84676829740928E-07 8.50818570163198E-07" rpy="0 0 0" />
+			<mass value="0.00351970825534327" />
+			<inertia ixx="1.84569835396339E-07" ixy="-4.24064557430265E-13" ixz="2.62213062059921E-23" iyy="2.95071423206008E-07" iyz="4.83363558906975E-12" izz="1.84549153267555E-07" />
+		</inertial>
+		<visual>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/casterwheel.STL" />
+			</geometry>
+			<material name="">
+				<color rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 0 0" />
+			<geometry>
+				<mesh filename="package://car_gazebo/meshes/casterwheel.STL" />
+			</geometry>
+		</collision>
+	</link>
+	<joint name="casterwheel2itsbracket" type="fixed">
+		<origin xyz="-0.0155 0 -0.0207" rpy="0 0 0" />
+		<parent link="casterbracket" />
+		<child link="casterwheel" />
+		<axis xyz="0 1 0" />
+	</joint>
+</robot>
